@@ -1,7 +1,7 @@
 import {useContext, useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
-import { Container, Typography, Button, Card, CardContent, CardMedia, TextField, CircularProgress } from "@mui/material";
+import { Container, Typography, Button, Card, CardContent, CardMedia, TextField, CircularProgress, Grid } from "@mui/material";
 import axios from "axios";
 
 function ProductDetail() {
@@ -49,15 +49,26 @@ function ProductDetail() {
     };
 
     return (
-        <Container sx={{mt: 4}}>
-            <Card sx={{display: 'flex', padding: 2}}>
+        <Container sx={{mt: 4, mb: 4}}>
+            <Card sx={{display: 'flex',
+                flexDirection: {xs: "column", md: "row"},
+                alignItems: {xs: "center", md: "flex-start"},
+                p: 2,
+                boxShadow: 3,
+                borderRadius: 2,
+            }}>
                 <CardMedia
                 component="img"
-                sx={{width: 300}}
+                sx={{width: {xs: "100%", sm: 300},
+                 height: {xs: 300, sm: "auto"},
+                 objectFit: "contain",
+                 borderRadius: 2,
+                 mb: {xs: 2, md: 0}
+                }}
                 image={product.image}
                 alt={product.name}
                 />
-                <CardContent sx={{flex: 1}}>
+                <Grid sx={{flex: 1, width: "100%"}} container spacing={3} alignItems="center">
                     <Typography variant="h4">{product.name}</Typography>
                      <Typography variant="h6" sx={{my: 2}}>${product.price}</Typography>
                       <Typography variant="body1" sx={{mb: 2}}>{product.description}</Typography>
@@ -87,7 +98,7 @@ function ProductDetail() {
                             No reviews available
                         </Typography>
                       )} 
-                </CardContent>
+                </Grid>
             </Card>
         </Container>
     )

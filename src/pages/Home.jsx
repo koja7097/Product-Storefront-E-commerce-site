@@ -55,7 +55,7 @@ export default function Home() {
             }}>
                 
             <TextField
-            placeholder="Search For Food...."
+            placeholder="Search For product...."
             variant="outlined"
             sx={{background: "white", borderRadius: 1, mt: 3, 
                 width: {xs: "80%", sm: "50%", md: "40%"},
@@ -81,7 +81,7 @@ export default function Home() {
                 Featured Products
             </Typography>
             <Typography textAlign="center" color="text.white" sx={{mb: 4, fontSize: "1.5rem"}}>
-                Explore our best organic and fresh picks
+                Explore our best and nice picks
             </Typography>
             <Box
             sx={{
